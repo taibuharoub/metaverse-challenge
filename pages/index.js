@@ -2,9 +2,10 @@ import Head from "next/head";
 import Login from "../components/Login";
 import { useMoralis } from "react-moralis";
 import Header from "../components/Header";
+import Messages from "../components/Messages";
 
 export default function Home() {
-  const { isAuthenticated, logout } = useMoralis();
+  const { isAuthenticated } = useMoralis();
 
   if (!isAuthenticated) return <Login />;
   return (
@@ -17,10 +18,10 @@ export default function Home() {
       <div className="max-w-screen-2xl mx-auto">
         {/* Header  */}
         <Header />
-        {/* Messages  */}
-      </div>
 
-      <button onClick={logout}>Logout</button>
+        {/* Messages  */}
+        <Messages />
+      </div>
     </div>
   );
 }
